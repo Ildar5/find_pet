@@ -17,13 +17,23 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from django.views.generic import TemplateView
-
+from rest_framework.authtoken.views import obtain_auth_token
+from pets_api.views import PostView, PostCreateView, PostListCreateView
 urlpatterns = [
-    path('',
-        TemplateView.as_view(template_name='application.html'),
-        name='app',
-    ),
+    # path('',
+    #     TemplateView.as_view(template_name='application.html'),
+    #     name='app',
+    # ),
     path('pets/', include('pets.urls')),
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
+
+
+    path('api-auth/', include('rest_framework.urls')),
+    path('rest-auth/', include('rest_auth.urls')),
+    path('rest-auth/registration/', include('rest_auth.registration.urls')),
+    path('', include('pets_api.urls'), name='pets_api'),
+    path('create/', PostCreateView.as_view(), name='create'),
+    path('list-create/', PostListCreateView.as_view(), name='list-create'),
+    path('api/token/', obtain_auth_token, name='obtain-token')
 ]

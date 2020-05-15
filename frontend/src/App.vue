@@ -1,20 +1,25 @@
 <template>
   <div id="app">
-    <router-link to="/auth">Авторизация</router-link>
-    <router-link to="/registration">Регистрация</router-link>
+    <NavBar />
     <router-view></router-view>
   </div>
 </template>
 
 <script>
+import NavBar from "./components/NavBar";
+
 export default {
-  name: "App"
+  name: "App",
+  components: {
+    NavBar
+  }
 };
 </script>
 
 <style>
 html,
-body {
+body,
+#app {
   height: 100%;
 }
 
@@ -24,10 +29,5 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  height: 100%;
-  margin-top: 60px;
-  max-width: 960px;
-  padding: 0 20px;
-  margin: auto;
 }
 </style>

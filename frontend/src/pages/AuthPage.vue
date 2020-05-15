@@ -1,6 +1,7 @@
 <template>
   <section :class="$style.container">
-    <img :class="$style.img" src="../assets/logo.png" alt="Логотип" />
+    <h2 class="subtitle is-2">Войти</h2>
+    <img :class="$style.img" src="../assets/puppy.png" alt="Логотип" />
     <div :class="$style.inputs">
       <b-field :class="$style.input">
         <b-input
@@ -60,15 +61,15 @@ export default {
 
   .inputs {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     margin: 0 auto;
     padding: 20px;
     width: 100%;
   }
 
   .input {
-    width: 100% / 1.5;
+    width: 100% / 3;
   }
 }
 </style>
