@@ -1,1 +1,20 @@
-{"status":"done","publicPath":"http://127.0.0.1:8080/","chunks":{"app":[{"name":"js/app.js","publicPath":"http://127.0.0.1:8080/js/app.js","path":"E:\\University\\Magistracy\\ProjectPet\\find_pet\\frontend\\dist\\js\\app.js"}]}}
+{
+    "status": "done",
+    "publicPath": "http://127.0.0.1:8080/",
+    "chunks": {
+        "null": [
+            {
+                "name": "js/0.js",
+                "publicPath": "http://127.0.0.1:8080/js/0.js",
+                "path": "E:\\University\\Magistracy\\ProjectPet\\find_pet\\frontend\\dist\\js\\0.js"
+            }
+        ],
+        "app": [
+            {
+                "name": "js/app.js",
+                "publicPath": "http://127.0.0.1:8080/js/app.js",
+                "path": "E:\\University\\Magistracy\\ProjectPet\\find_pet\\frontend\\dist\\js\\app.js"
+            }
+        ]
+    }
+}
