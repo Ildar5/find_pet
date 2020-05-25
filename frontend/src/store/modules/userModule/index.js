@@ -6,9 +6,8 @@ const state = {
     isLoading: false,
 }
 
-console.log(getters);
-
 export const userModule = {
+    namespaced: true,
     actions,
     state,
     mutations,

@@ -1,17 +1,19 @@
 <template>
   <div id="app">
     <NavBar />
+    <Notification />
     <router-view></router-view>
   </div>
 </template>
 
 <script>
 import NavBar from "./components/NavBar";
-
+import Notification from "@/components/Notification";
 export default {
   name: "App",
   components: {
-    NavBar
+    NavBar,
+    Notification
   }
 };
 </script>
