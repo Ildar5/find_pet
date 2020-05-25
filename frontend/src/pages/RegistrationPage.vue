@@ -41,14 +41,20 @@
       </b-field>
     </div>
     <b-button :loading="isLoading" @click="onClickRegister" type="is-light">Зарегистрироваться</b-button>
+    <Notification />
   </section>
 </template>
 
 <script>
 import { mapActions, mapGetters } from "vuex";
+import Notification from "@/components/Notification.vue";
 
 export default {
   name: "RegistrationPage",
+
+  components: {
+    Notification
+  },
 
   data() {
     return {
@@ -57,12 +63,15 @@ export default {
       repeatPassword: ""
     };
   },
+
   computed: {
-    ...mapGetters(["isLoading"])
+    ...mapGetters({ isLoading: "userModule/isLoading" })
   },
 
   methods: {
-    ...mapActions(["registerUser"]),
+    ...mapActions({
+      registerUser: "userModule/registerUser"
+    }),
 
     onClickRegister() {
       if (this.email && this.password && this.repeatPassword) {

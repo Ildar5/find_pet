@@ -11,6 +11,7 @@
         <template slot="start">
           <b-navbar-item href="#">Объявления</b-navbar-item>
           <b-navbar-item href="#">Поиск животного</b-navbar-item>
+          <b-navbar-item href="#">Создать объявление</b-navbar-item>
         </template>
 
         <template slot="end">

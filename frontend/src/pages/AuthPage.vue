@@ -25,11 +25,15 @@
         ></b-input>
       </b-field>
     </div>
-    <b-button type="is-light">Войти</b-button>
+    <b-button type="is-light" @click="onClickAuth">Войти</b-button>
+    <Notification />
   </section>
 </template>
 
 <script>
+import Notification from "@/components/Notification";
+import { mapActions } from "vuex";
+
 export default {
   data() {
     return {
@@ -38,9 +42,21 @@ export default {
     };
   },
 
+  components: {
+    Notification
+  },
+
   methods: {
+    ...mapActions("userModule", ["authUser"]),
+
     onClearInput(type) {
       this[type] = "";
+    },
+
+    onClickAuth() {
+      if (this.email && this.password) {
+        this.authUser({ email: this.email, password: this.password });
+      }
     }
   }
 };
