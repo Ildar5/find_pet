@@ -4,6 +4,7 @@ import getters from './getters'
 
 const state = {
     isLoading: false,
+    token: localStorage.getItem('token'),
 }
 
 export const userModule = {
