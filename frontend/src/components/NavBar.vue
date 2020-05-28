@@ -11,14 +11,21 @@
         <template slot="start">
           <b-navbar-item href="#">Объявления</b-navbar-item>
           <b-navbar-item href="#">Поиск животного</b-navbar-item>
-          <b-navbar-item href="#">Создать объявление</b-navbar-item>
+          <b-navbar-item v-if="isUserLoggedIn" href="#">Создать объявление</b-navbar-item>
         </template>
 
         <template slot="end">
-          <b-navbar-item tag="div">
+          <b-navbar-item v-if="!isUserLoggedIn" tag="div">
             <div class="buttons">
               <router-link class="button is-light" to="/auth">Войти</router-link>
               <router-link class="button is-light" to="/registration">Регистрация</router-link>
+            </div>
+          </b-navbar-item>
+          <b-navbar-item v-else tag="div">
+            <div class="buttons">
+              <div @click="onClickLogout">
+                <router-link class="button is-light" to="/auth">Выйти</router-link>
+              </div>
             </div>
           </b-navbar-item>
         </template>
@@ -28,7 +35,19 @@
 </template>
 
 <script>
-export default {};
+import { mapGetters, mapActions } from "vuex";
+export default {
+  methods: {
+    ...mapActions("userModule", ["logoutUser"]),
+
+    onClickLogout() {
+      this.logoutUser();
+    }
+  },
+  computed: {
+    ...mapGetters("userModule", ["isUserLoggedIn"])
+  }
+};
 </script>
 
 <style lang="less" module>

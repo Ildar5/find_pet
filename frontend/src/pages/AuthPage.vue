@@ -25,14 +25,14 @@
         ></b-input>
       </b-field>
     </div>
-    <b-button type="is-light" @click="onClickAuth">Войти</b-button>
+    <b-button :loading="isLoading" type="is-light" @click="onClickAuth">Войти</b-button>
     <Notification />
   </section>
 </template>
 
 <script>
 import Notification from "@/components/Notification";
-import { mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 
 export default {
   data() {
@@ -44,6 +44,10 @@ export default {
 
   components: {
     Notification
+  },
+
+  computed: {
+    ...mapGetters({ isLoading: "userModule/isLoading" })
   },
 
   methods: {
