@@ -38,9 +38,10 @@ export const authUser = async ({ commit }, { email, password }) => {
 
 export const registerUser = async ({ commit }, { email, password1, password2 }) => {
     const postParams = {
-        username: email,
+        email,
         password1,
-        password2
+        password2,
+        username: email,
     }
 
     commit(LOADING_START);

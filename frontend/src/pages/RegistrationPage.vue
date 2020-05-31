@@ -5,8 +5,10 @@
     <div :class="$style.inputs">
       <b-field :class="$style.input">
         <b-input
+          ref="emailInput"
           v-model="email"
           placeholder="Email"
+          type="email"
           icon="email"
           maxlength="30"
           :icon-right="email ? 'close-circle' : ''"
@@ -65,7 +67,16 @@ export default {
   },
 
   computed: {
-    ...mapGetters({ isLoading: "userModule/isLoading" })
+    ...mapGetters({ isLoading: "userModule/isLoading" }),
+
+    isRegisterAvailable() {
+      return (
+        this.email &&
+        this.password &&
+        this.repeatPassword &&
+        this.$refs.emailInput.isValid
+      );
+    }
   },
 
   methods: {
@@ -74,7 +85,7 @@ export default {
     }),
 
     onClickRegister() {
-      if (this.email && this.password && this.repeatPassword) {
+      if (this.isRegisterAvailable) {
         this.registerUser({
           email: this.email,
           password1: this.password,

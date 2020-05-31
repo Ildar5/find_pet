@@ -29,14 +29,10 @@ class TestView(APIView):
             return Response(serializer.data)
         return Response(serializer.errors)
 
-
 class PostView(viewsets.ModelViewSet):
     serializer_class = PostSerializer
     queryset = Post.objects.all()
     lookup_field = 'id'
-
-
-
 
 class PostCreateView(mixins.ListModelMixin, generics.CreateAPIView):
     serializer_class = PostSerializer
@@ -44,7 +40,6 @@ class PostCreateView(mixins.ListModelMixin, generics.CreateAPIView):
 
     def get(self, request, *args, **kwargs):
         return self.list(request, *args, **kwargs)
-
 
 class PostListCreateView(generics.ListCreateAPIView):
     serializer_class = PostSerializer
