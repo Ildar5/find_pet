@@ -4,7 +4,8 @@ import VueRouter from 'vue-router'
 import RegistrationPage from '@/pages/RegistrationPage.vue'
 import AuthPage from '@/pages/AuthPage'
 import SuccessPage from '@/pages/SuccessPage'
-import NotFound from '@/pages/NotFound'
+import NotFoundPage from '@/pages/NotFoundPage'
+import CreateAddPage from '@/pages/CreateAddPage'
 import '@/helpers/global.js'
 import Buefy from 'buefy'
 import { store } from './store'
@@ -15,10 +16,11 @@ Vue.use(VueRouter);
 Vue.use(Buefy);
 
 const routes = [
-  { path: '*', component: NotFound },
+  { path: '*', component: NotFoundPage },
   { path: '/registration', component: RegistrationPage },
   { path: '/auth', component: AuthPage },
   { path: '/success', component: SuccessPage },
+  { path: '/createad', component: CreateAddPage },
 ]
 
 export const router = new VueRouter({

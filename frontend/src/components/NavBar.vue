@@ -11,7 +11,9 @@
         <template slot="start">
           <b-navbar-item href="#">Объявления</b-navbar-item>
           <b-navbar-item href="#">Поиск животного</b-navbar-item>
-          <b-navbar-item v-if="isUserLoggedIn" href="#">Создать объявление</b-navbar-item>
+          <b-navbar-item v-if="isUserLoggedIn" href="#">
+            <router-link to="/createad">Создать объявление</router-link>
+          </b-navbar-item>
         </template>
 
         <template slot="end">

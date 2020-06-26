@@ -10,6 +10,7 @@ import {
 
 const REGISTRATION_URL = 'http://127.0.0.1:8000/rest-auth/registration/';
 const AUTH_URL = 'http://127.0.0.1:8000/rest-auth/login/';
+const CURRENT_USER = 'http://127.0.0.1:8000/rest-auth/user';
 
 export const authUser = async ({ commit }, { email, password }) => {
     const postParams = {
@@ -34,6 +35,14 @@ export const authUser = async ({ commit }, { email, password }) => {
         .finally(() => {
             commit(LOADING_END);
         });
+    await axios.get(CURRENT_USER, {
+        headers: {
+            "Authorization": `token ${localStorage.getItem('token')}`
+        }
+    }).then((response) => {
+        console.log(response);
+        localStorage.setItem('user_id');
+    })
 }
 
 export const registerUser = async ({ commit }, { email, password1, password2 }) => {
